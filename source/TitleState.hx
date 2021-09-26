@@ -114,6 +114,7 @@ class TitleState extends MusicBeatState
 	var danceLeft:Bool = false;
 	var titleText:FlxSprite;
 	var bg:FlxSprite;
+	var bbg:FlxSprite;
 	var bgLit:FlxSprite;
 	var henk:FlxSprite;
 
@@ -163,13 +164,13 @@ class TitleState extends MusicBeatState
 		}
 		else
 		{*/
-			bg = new FlxSprite(FlxG.width, FlxG.height).loadGraphic(Paths.image('hanktitlebackground'));
-			bg.updateHitbox();
-			bg.screenCenter();
-			bg.antialiasing = true;
-			add(bg);
-			bg.visible = true;
-
+			bbg = new FlxSprite(FlxG.width, FlxG.height);
+			bbg.frames = Paths.getSparrowAtlas('bumpin-bg');
+			bbg.animation.addByPrefix('bumpin', 'bg bumping', 24);
+			bbg.screenCenter();
+			bbg.antialiasing = true;
+			add(bbg);
+			
 			bgLit = new FlxSprite(FlxG.width, FlxG.height).loadGraphic(Paths.image('titleBGLit'));
 			bgLit.updateHitbox();
 			bgLit.screenCenter();
@@ -181,7 +182,6 @@ class TitleState extends MusicBeatState
 			logoBl.frames = Paths.getSparrowAtlas('logoBumpin');
 			logoBl.antialiasing = true;
 			logoBl.animation.addByPrefix('bump', 'logo bumpin', 24);
-			logoBl.animation.play('bump');
 			logoBl.scale.set(0.9, 0.9);
 			logoBl.updateHitbox();
 			
@@ -422,7 +422,8 @@ class TitleState extends MusicBeatState
 	{
 		super.beatHit();
 
-		logoBl.animation.play('bump');
+		logoBl.animation.play('bump',true);
+		bbg.animation.play('bumpin',true);
 		henk.animation.play('idle',true);
 		danceLeft = !danceLeft;
 
