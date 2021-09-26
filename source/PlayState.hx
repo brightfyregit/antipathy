@@ -393,8 +393,6 @@ class PlayState extends MusicBeatState
 			luaModchartExists = FileSystem.exists(Paths.modchart(SONG.song.toLowerCase()));
 		#end
 
-
-
 		grade = ScoreUtils.gradeArray[0] + " (FC)";
 		hitNotes=0;
 		totalNotes=0;
@@ -482,11 +480,11 @@ class PlayState extends MusicBeatState
 		switch (storyDifficulty)
 		{
 			case 0:
-				storyDifficultyText = "Easy";
-			case 1:
-				storyDifficultyText = "Normal";
-			case 2:
 				storyDifficultyText = "Hard";
+			case 1:
+				storyDifficultyText = "Mad";
+			case 2:
+				storyDifficultyText = "Fucked";
 		}
 
 		iconRPC = SONG.player2;
@@ -512,7 +510,7 @@ class PlayState extends MusicBeatState
 		}
 		else
 		{
-			detailsText = "Freeplay"+ " ";
+			detailsText = "Freeplay | "+ " ";
 		}
 
 		// String for when the game is paused
@@ -3456,7 +3454,7 @@ class PlayState extends MusicBeatState
 			// dad.dance();
 		}
 		
-		//Countdown with Hank - thanks CryBit
+		//WORKS BETTER NOW LOL
 		if (curSong == 'Battered')
 			{
 				switch(curStep)
@@ -3471,9 +3469,9 @@ class PlayState extends MusicBeatState
 					three.updateHitbox();
 					three.screenCenter();
 					three.y -= 100;
-					three.alpha = 0.9;
+					three.alpha = 1.0;
 					add(three);
-					FlxTween.tween(three, {y: three.y += 100, alpha: 0}, Conductor.crochet / 1000, {
+					FlxTween.tween(three, {y: three.y += 100, alpha: 0}, 0.75, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
@@ -3487,9 +3485,9 @@ class PlayState extends MusicBeatState
 					two.scale.set(0.5, 0.5);
 					two.screenCenter();
 					two.y -= 100;
-					two.alpha = 0.9;
+					two.alpha = 1.0;
 					add(two);
-					FlxTween.tween(two, {y: two.y += 100, alpha: 0}, Conductor.crochet / 1000, {
+					FlxTween.tween(two, {y: two.y += 100, alpha: 0}, 0.75, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
@@ -3503,10 +3501,10 @@ class PlayState extends MusicBeatState
 					one.scale.set(0.5, 0.5);
 					one.screenCenter();
 					one.y -= 100;
-					one.alpha = 0.9;
+					one.alpha = 1.0;
 
 						add(one);
-						FlxTween.tween(one, {y: one.y += 100, alpha: 0}, Conductor.crochet / 1000, {
+						FlxTween.tween(one, {y: one.y += 100, alpha: 0}, 0.75, {
 							ease: FlxEase.cubeInOut,
 							onComplete: function(twn:FlxTween)
 							{
@@ -3522,9 +3520,9 @@ class PlayState extends MusicBeatState
 					go.updateHitbox();
 					go.screenCenter();
 					go.y -= 100;
-					go.alpha = 0.9;
+					go.alpha = 1.0;
 					add(go);
-					FlxTween.tween(go, {y: go.y += 100, alpha: 0}, Conductor.crochet / 1000, {
+					FlxTween.tween(go, {y: go.y += 100, alpha: 0}, 0.75, {
 						ease: FlxEase.cubeInOut,
 						onComplete: function(twn:FlxTween)
 						{
