@@ -244,6 +244,22 @@ class Character extends FlxSprite
 				animation.addByPrefix('singLEFT', 'ANTI-Hank M LEFT', 24);
 				animation.addByPrefix('singDOWN', 'Anti-Hank M DOWN', 24);
 				animation.addByPrefix('singRIGHT', 'Anti-Hank M RIGHT', 24);
+				animation.addByPrefix('block', 'Anti-Hank Block', 24);
+
+				loadOffsets();
+
+				playAnim('idle');
+			
+			case 'hank-pissed':
+				iconColor = 'FF0000';
+				tex = Paths.getSparrowAtlas('characters/MADMAN','shared');
+				frames = tex;
+				animation.addByPrefix('idle', 'MAD-Hank Idle', 24);
+				animation.addByPrefix('singUP', 'MAD-Hank M UP', 24);
+				animation.addByPrefix('singLEFT', 'MAD-Hank M LEFT', 24);
+				animation.addByPrefix('singDOWN', 'MAD-Hank M DOWN', 24);
+				animation.addByPrefix('singRIGHT', 'MAD-Hank M RIGHT', 24);
+				animation.addByPrefix('block', 'Anti-Hank Block', 24);
 
 				loadOffsets();
 

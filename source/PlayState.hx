@@ -971,7 +971,7 @@ class PlayState extends MusicBeatState
 		if(SONG.player1=='bf-neb')
 			gfVersion = 'lizzy';
 		
-		if(SONG.player2=='hank' || SONG.player2=='pank')
+		if(SONG.player2=='hank' || SONG.player2=='hank-pissed' || SONG.player2=='pank')
 			gfVersion = 'gf-anti';
 
 		gf = new Character(400, 130, gfVersion);
@@ -1022,7 +1022,7 @@ class PlayState extends MusicBeatState
 				dad.x += 200;
 			case 'bf' | 'bf-car' | 'bf-christmas':
 				dad.y += 350;
-			case 'hank' | 'pank':
+			case 'hank' | 'hank-pissed' | 'pank':
 				dad.x -= 800;
 				dad.y += 120;
 		}
@@ -2601,7 +2601,7 @@ class PlayState extends MusicBeatState
 								health -= 0.0182;
 							}
 						
-						if (SONG.player2=='hank'){
+						if (SONG.player2=='hank' || SONG.player2=='hank-pissed'){
 							FlxG.camera.shake(0.008, 0.2);
 						}
 
