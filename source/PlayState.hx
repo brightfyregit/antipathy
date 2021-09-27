@@ -3548,9 +3548,13 @@ class PlayState extends MusicBeatState
 					case 779:
 						defaultCamZoom = 1.0;
 					case 875:
-						remove(dad);
-						dad = new Character(dad.x, dad.y, 'hank-pissed');
-						add(dad);
+
+						sys.thread.Thread.create(function()
+						{
+							remove(dad);
+							dad = new Character(dad.x, dad.y, 'hank-pissed');
+							add(dad);
+						});
 					case 899:
 						FlxG.camera.shake(0.05, 0.4);
 						FlxTween.tween(FlxG.camera, {zoom: 0.7}, 0.7, {ease: FlxEase.cubeInOut});
