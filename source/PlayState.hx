@@ -3531,6 +3531,36 @@ class PlayState extends MusicBeatState
 					});
 				}
 			}
+		if (curSong == 'Overdrive')
+			{
+				switch(curStep)
+				{
+					case 411:
+						FlxTween.tween(FlxG.camera, {zoom: 1.2}, 0.7, {ease: FlxEase.cubeInOut});
+					case 623:
+						FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 0.7, {ease: FlxEase.cubeInOut});
+					case 627:
+						FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 0.7, {ease: FlxEase.cubeInOut});
+					case 632:
+						FlxTween.tween(FlxG.camera, {zoom: FlxG.camera.zoom + 0.3}, 1.0, {ease: FlxEase.cubeInOut});
+					case 775:
+						FlxTween.tween(FlxG.camera, {zoom: 1.0}, 0.7, {ease: FlxEase.cubeInOut});
+					case 779:
+						defaultCamZoom = 1.0;
+					case 875:
+						remove(dad);
+						dad = new Character(dad.x, dad.y, 'hank-pissed');
+						add(dad);
+					case 899:
+						FlxG.camera.shake(0.05, 0.4);
+						FlxTween.tween(FlxG.camera, {zoom: 0.7}, 0.7, {ease: FlxEase.cubeInOut});
+					case 902: 
+						defaultCamZoom = 0.7;
+					case 955:
+						FlxTween.tween(FlxG.camera, {zoom: 1.2}, 0.5, {ease: FlxEase.cubeInOut});
+						FlxG.camera.shake(0.05, 0.4);
+				}
+			}
 	}
 
 	var lightningStrikeBeat:Int = 0;
@@ -3657,6 +3687,15 @@ class PlayState extends MusicBeatState
 	}
 
 	var curLight:Int = 0;
+	
+	function changeDadCharacter(id:String){				
+			var olddadx = dad.x;
+			var olddady = dad.y;
+			remove(dad);
+			dad = new Character(olddadx, olddady, id);
+			add(dad);
+			iconP2.animation.play(id);
+	}
 
 	override function switchTo(next:FlxState){
 		// Do all cleanup of stuff here! This makes it so you dont need to copy+paste shit to every switchState
